@@ -149,8 +149,8 @@ class PoController extends Controller
                         $po->buyer_id = $buyer;
                         $po->ship_date = Carbon::parse($value['I'])->format('Y-m-d');
                         $po->order_confirm_date = Carbon::parse($value['J'])->format('Y-m-d');
-                        $po->plan_quantity = $value['G'];
-                        $po->order_quantity = $value['H'];
+                        $po->order_quantity = $value['G'];
+                        $po->plan_quantity = $value['H'];
                         $po->po_type = $po_type;
                         $po->plant_id = $plant;
                         $po->uploaded_by = Auth::user()->id;

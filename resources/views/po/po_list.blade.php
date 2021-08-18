@@ -165,8 +165,8 @@
                                                 <th class="text-center td">Style Name</th>
                                                 <th class="text-center td">Quality</th>
                                                 <th class="text-center td">Color</th>
-                                                <th class="text-center td">Plan Qty</th>
                                                 <th class="text-center td">Order Qty</th>
+                                                <th class="text-center td">Plan Qty</th>
                                                 <th class="text-center td">Buyer</th>
                                                 <th class="text-center td">Ship Date</th>
                                                 <th class="text-center td">Approx Ship Date</th>

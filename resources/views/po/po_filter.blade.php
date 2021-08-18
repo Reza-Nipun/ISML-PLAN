@@ -14,8 +14,8 @@
         <th class="text-center td">Style Name</th>
         <th class="text-center td">Quality</th>
         <th class="text-center td">Color</th>
-        <th class="text-center td">Plan Qty</th>
         <th class="text-center td">Order Qty</th>
+        <th class="text-center td">Plan Qty</th>
         <th class="text-center td">Buyer</th>
         <th class="text-center td">Ship Date</th>
         <th class="text-center td">Approx Ship Date</th>
@@ -94,10 +94,10 @@
                 {{ $po->color }}
             </td>
             <td class="text-center td">
-                {{ $po->plan_quantity }}
+                {{ $po->order_quantity }}
             </td>
             <td class="text-center td">
-                {{ $po->order_quantity }}
+                {{ $po->plan_quantity }}
             </td>
             <td class="text-center td">
                 {{ $po->buyer->buyer_name }}
@@ -142,10 +142,10 @@
     {{--<th class="text-center td">Order No</th>--}}
     <td class="text-center td" colspan="8"></td>
     <td class="text-center td">
-        {{ $total_plan_qty }}
+        {{ $total_order_qty }}
     </td>
     <td class="text-center td">
-        {{ $total_order_qty }}
+        {{ $total_plan_qty }}
     </td>
     <td class="text-center td" colspan="4"></td>
     <td class="text-center td">
