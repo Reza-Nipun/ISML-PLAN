@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>User List</h1>
+                        <h1>User Types</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">User List</li>
+                            <li class="breadcrumb-item active">User Types</li>
                         </ol>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <a href="{{ route('user.create') }}" class="btn btn-success">
-                                        <i class="fas fa-plus"></i> Create User
+                                    <a href="{{ route('user-type.create') }}" class="btn btn-success">
+                                        <i class="fas fa-plus"></i> Create User-Type
                                     </a>
                                 </h3>
                             </div>
@@ -41,44 +41,22 @@
                                 <table id="" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>SL</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Is Admin</th>
-                                        <th>User Type</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">SL</th>
+                                        <th class="text-center">User Type</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
+                                    @foreach($user_types as $user_type)
                                         <tr>
-                                            <td>
-                                                {{ $user->id }}
+                                            <td class="text-center">
+                                                {{ $user_type->id }}
                                             </td>
-                                            <td>
-                                                {{ $user->name }}
+                                            <td class="text-center">
+                                                {{ $user_type->user_type }}
                                             </td>
-                                            <td>
-                                                {{ $user->email }}
-                                            </td>
-                                            <td>
-                                                {{ $user->is_admin == 1 ? 'Admin' : 'User' }}
-                                            </td>
-                                            <td>
-                                                @if(isset($user->user_type))
-
-                                                    {{ $user->users_type->user_type }}
-
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <span class="badge {{ ($user->status == 1 ? 'badge-success' : 'badge-danger') }}">
-                                                    {{ ($user->status == 1 ? 'Active' : 'Inactive') }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-primary" title="Edit">
+                                            <td class="text-center">
+                                                <a href="{{ route('user-type.edit', $user_type->id) }}" class="btn btn-sm btn-primary" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                             </td>

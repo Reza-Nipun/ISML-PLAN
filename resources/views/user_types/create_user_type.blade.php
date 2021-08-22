@@ -7,13 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Create Buyer</h1>
+                        <h1>Create User-Type</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('buyer.index') }}">Buyer List</a></li>
-                            <li class="breadcrumb-item active">Create Buyer</li>
+                            <li class="breadcrumb-item"><a href="{{ route('user-type.index') }}">User-Type List</a></li>
+                            <li class="breadcrumb-item active">Create User-Type</li>
                         </ol>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <!-- /.card-header -->
-                    <form action="{{ route('buyer.store') }}" method="post">
+                    <form action="{{ route('user-type.store') }}" method="post">
 
                         @csrf
 
@@ -59,22 +59,10 @@
                         @endif
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="buyer_name">Buyer Name <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" id="buyer_name" name="buyer_name" placeholder="Enter Buyer Name" value="{{ old('buyer_name') }}">
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="status">Status <span style="color: red">*</span></label>
-                                    <select class="form-control select2bs4" style="width: 100%;" name="status" id="status">
-                                        <option value="">Select Status</option>
-                                        <option value="1">Active</option>
-                                        <option value="0">Inactive</option>
-                                    </select>
+                                    <label for="user_type">User Type <span style="color: red">*</span></label>
+                                    <input type="text" class="form-control" id="user_type" name="user_type" placeholder="Enter User Type" value="{{ old('user_type') }}" autocomplete="off">
                                 </div>
                                 <!-- /.form-group -->
                             </div>

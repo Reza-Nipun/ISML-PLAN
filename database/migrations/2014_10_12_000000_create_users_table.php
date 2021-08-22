@@ -19,10 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('user_type')->comment('0=Admin, 1=SD, 2=Commercial, 3=Planner, 4=Store')->nullable();
+            $table->boolean('is_admin')->comment('1=Admin, 0=User')->nullable();
+            $table->unsignedBigInteger('user_type')->nullable();
             $table->integer('status')->comment('1=Active, 0=Inactive')->default(1);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('user_type')->references('id')->on('user_types');
         });
     }
 

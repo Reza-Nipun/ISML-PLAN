@@ -1,4 +1,4 @@
-@extends((Auth::user()->user_type == 0) ? 'layouts.admin_app' : 'layouts.user_app')
+@extends((Auth::user()->is_admin == 1) ? 'layouts.admin_app' : 'layouts.user_app')
 
 @section('content')
 
@@ -121,7 +121,7 @@
                                             <i class="fas fa-file-excel"></i> Export Excel
                                         </button>
 
-                                        @if(Auth::user()->user_type == 0)
+                                        @if(Auth::user()->is_admin == 1)
                                             <a href="{{ route('po.create') }}" class="btn btn-sm btn-success">
                                                 <i class="fas fa-upload"></i> Upload PO
                                             </a>
@@ -129,7 +129,7 @@
                                             <span class="btn btn-sm btn-danger" onclick="deletePoModal()"><i class="fas fa-trash"></i> Delete</span>
                                         @endif
 
-                                        @if(Auth::user()->user_type == 0 || Auth::user()->user_type == 3)
+                                        @if(Auth::user()->is_admin == 1 || Auth::user()->user_type == 3)
                                             <span class="btn btn-sm btn-primary" onclick="assignTNAModal()"><i class="fas fa-calendar-alt"></i> Assign TNA</span>
                                             <span class="btn btn-sm btn-warning" onclick="changePlantModal()"><i class="fas fa-store"></i> Change Plant</span>
                                             <span class="btn btn-sm btn-info" onclick="changeShipDateModal()"><i class="fas fa-ship"></i> Change Ship-Date</span>
@@ -151,7 +151,7 @@
                                     <table id="table_id" class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                @if(Auth::user()->user_type == 0 || Auth::user()->user_type == 3)
+                                                @if(Auth::user()->is_admin == 1 || Auth::user()->user_type == 3)
                                                     <th class="text-center td">
                                                         <input type="checkbox" class="" id="checkAll" style="width:2vw; height:3vh;">
                                                     </th>
@@ -1119,18 +1119,32 @@
             }
 
             if(po_update_po_no != '' && po_update_destination != '' && po_update_style_no != '' && po_update_style_name != '' && po_update_quality != '' && po_update_color != '' && po_update_order_qty != '' && po_update_ship_date != '' && po_update_po_type != '' && po_update_plant != '' && po_update_buyer != ''){
-                $("#modal-lg-8").modal('hide');
-                $("#po_update_po_no").css('border-color', '');
-                $("#po_update_destination").css('border-color', '');
-                $("#po_update_style_no").css('border-color', '');
-                $("#po_update_style_name").css('border-color', '');
-                $("#po_update_quality").css('border-color', '');
-                $("#po_update_color").css('border-color', '');
-                $("#po_update_order_qty").css('border-color', '');
-                $("#po_update_ship_date").css('border-color', '');
-                $("#po_update_po_type").css('border-color', '');
-                $("#po_update_plant").css('border-color', '');
-                $("#po_update_buyer").css('border-color', '');
+
+                $.ajax({
+                    url: "{{ route("po_info_update") }}",
+                    type:'POST',
+                    data: {_token:"{{csrf_token()}}", po_id: po_id, po_update_po_no: po_update_po_no, po_update_destination: po_update_destination, po_update_style_no: po_update_style_no, po_update_style_name: po_update_style_name, po_update_quality: po_update_quality, po_update_color: po_update_color, po_update_plan_qty: po_update_plan_qty, po_update_order_qty: po_update_order_qty, po_update_ship_date: po_update_ship_date, po_update_confirm_date: po_update_confirm_date, po_update_po_remarks: po_update_po_remarks, po_update_po_type: po_update_po_type, po_update_plant: po_update_plant, po_update_buyer: po_update_buyer},
+                    dataType: "json",
+                    success: function (data) {
+                        if(data == "success"){
+                            $("#modal-lg-8").modal('hide');
+                            $("#po_update_po_no").css('border-color', '');
+                            $("#po_update_destination").css('border-color', '');
+                            $("#po_update_style_no").css('border-color', '');
+                            $("#po_update_style_name").css('border-color', '');
+                            $("#po_update_quality").css('border-color', '');
+                            $("#po_update_color").css('border-color', '');
+                            $("#po_update_order_qty").css('border-color', '');
+                            $("#po_update_ship_date").css('border-color', '');
+                            $("#po_update_po_type").css('border-color', '');
+                            $("#po_update_plant").css('border-color', '');
+                            $("#po_update_buyer").css('border-color', '');
+
+                            $("#search_btn").click();
+                        }
+                    }
+                });
+
             }
 
         }

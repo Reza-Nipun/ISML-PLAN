@@ -340,6 +340,43 @@ class PoController extends Controller
         return response()->json($po_info, 200);
     }
 
+    public function poInfoUpdate(Request $request){
+        $po_id = $request->po_id;
+        $po_no = $request->po_update_po_no;
+        $destination = $request->po_update_destination;
+        $style_no = $request->po_update_style_no;
+        $style_name = $request->po_update_style_name;
+        $quality = $request->po_update_quality;
+        $color = $request->po_update_color;
+        $plan_qty = $request->po_update_plan_qty;
+        $order_qty = $request->po_update_order_qty;
+        $ship_date = $request->po_update_ship_date;
+        $confirm_date = $request->po_update_confirm_date;
+        $remarks = $request->po_update_po_remarks;
+        $po_type = $request->po_update_po_type;
+        $plant = $request->po_update_plant;
+        $buyer = $request->po_update_buyer;
+
+        $po = Po::find($po_id);
+        $po->po = $po_no;
+        $po->destination = $destination;
+        $po->quality = $quality;
+        $po->color = $color;
+        $po->style_no = $style_no;
+        $po->style_name = $style_name;
+        $po->buyer_id = $buyer;
+        $po->order_confirm_date = $confirm_date;
+        $po->ship_date = $ship_date;
+        $po->plan_quantity = $plan_qty;
+        $po->order_quantity = $order_qty;
+        $po->po_type = $po_type;
+        $po->plant_id = $plant;
+        $po->remarks = $remarks;
+        $po->save();
+
+        return response()->json('success', 200);
+    }
+
     public function shipmentSummaryReport(){
         $title = ' | PO List';
         $plants = Plant::all();

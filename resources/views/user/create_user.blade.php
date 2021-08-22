@@ -1,4 +1,4 @@
-@extends((Auth::user()->user_type == 0) ? 'layouts.admin_app' : 'layouts.user_app')
+@extends((Auth::user()->is_admin == 1) ? 'layouts.admin_app' : 'layouts.user_app')
 
 @section('content')
     <div class="content-wrapper">
@@ -80,14 +80,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="user_type">Type <span style="color: red">*</span></label>
-                                    <select class="form-control select2bs4" style="width: 100%;" name="user_type" id="user_type">
+                                    <label for="is_admin">Is Admin? <span style="color: red">*</span></label>
+                                    <select class="form-control select2bs4" style="width: 100%;" name="is_admin" id="is_admin">
                                         <option value="">Select Type</option>
-                                        <option value="0">Admin</option>
-                                        <option value="1">SD</option>
-                                        <option value="2">Commercial</option>
-                                        <option value="3">Planner</option>
-                                        <option value="4">Store</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                                 <!-- /.form-group -->
@@ -108,6 +105,19 @@
                         </div>
                         <!-- /.row -->
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="user_type">User Type </label>
+                                        <select class="form-control select2bs4" style="width: 100%;" name="user_type" id="user_type">
+                                            <option value="">Select User Type</option>
+                                            @foreach($user_types as $user_type)
+                                                <option value="{{ $user_type->id }}">{{ $user_type->user_type }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!-- /.col -->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="password">Default Password <span style="color: red">*</span></label>

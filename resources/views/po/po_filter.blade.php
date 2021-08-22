@@ -1,6 +1,6 @@
 <thead>
     <tr>
-        @if(Auth::user()->user_type == 0 || Auth::user()->user_type == 3)
+        @if(Auth::user()->is_admin == 1 || Auth::user()->user_type == 3)
             <th class="text-center td">
                 <input type="checkbox" class="" id="checkAll" style="width:2vw; height:3vh;">
             </th>
@@ -45,7 +45,7 @@
     @endphp
 
     <tr>
-        @if(Auth::user()->user_type == 0 || Auth::user()->user_type == 3)
+        @if(Auth::user()->is_admin == 1 || Auth::user()->user_type == 3)
             <td>
                 <input type="checkbox" class="checkItem" id="" name="checkItem[]" style="width:2vw; height:3vh;" value="{{ $po->id }}">
             </td>
@@ -54,13 +54,13 @@
                 {{--{{ $po->order_no }}--}}
             {{--</td>--}}
             <td class="text-center td">
-                @if(Auth::user()->user_type == 0)
+                @if(Auth::user()->is_admin == 1)
                     <span class="btn btn-sm btn-primary" title="EDIT" onclick="poInfoUpdateModal('{{ $po->id }}')">
                         <i class="fas fa-edit"></i>
                     </span>
                 @endif
 
-                @if(Auth::user()->user_type == 0 || Auth::user()->user_type == 3)
+                @if(Auth::user()->is_admin == 1 || Auth::user()->user_type == 3)
                     <span class="btn btn-sm btn-success" title="SHIPMENT" onclick="shipmentInfoUpdateModal('{{ $po->id }}')">
                         <i class="fas fa-truck"></i>
                     </span>
@@ -134,7 +134,7 @@
 </tbody>
 <tfoot>
 <tr>
-    @if(Auth::user()->user_type == 0 || Auth::user()->user_type == 3)
+    @if(Auth::user()->is_admin == 1 || Auth::user()->user_type == 3)
         <td class="text-center td">
 
         </td>

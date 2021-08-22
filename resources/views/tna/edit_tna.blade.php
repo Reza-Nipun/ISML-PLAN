@@ -1,4 +1,4 @@
-@extends((Auth::user()->user_type == 0) ? 'layouts.admin_app' : 'layouts.user_app')
+@extends((Auth::user()->is_admin == 1) ? 'layouts.admin_app' : 'layouts.user_app')
 
 @section('content')
     <div class="content-wrapper">

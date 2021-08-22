@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,8 +30,9 @@ class UserController extends Controller
     public function create()
     {
         $title = ' | Create User';
+        $user_types = UserType::all();
 
-        return view('user.create_user', compact('title'));
+        return view('user.create_user', compact('title', 'user_types'));
     }
 
     /**
@@ -44,7 +46,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|unique:users',
-            'user_type' => 'required',
+            'is_admin' => 'required',
             'status' => 'required',
             'password' => 'required',
         ]);
@@ -52,12 +54,13 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->is_admin = $request->is_admin;
         $user->user_type = $request->user_type;
         $user->password = Hash::make($request->password);
         $user->status = $request->status;
         $user->save();
 
-        return redirect()->back()->with('success', 'User Successfully Created!');
+        return redirect()->back()->with('success', 'Account Successfully Created!');
     }
 
     /**
@@ -81,8 +84,9 @@ class UserController extends Controller
     {
         $title = ' | Edit User';
         $user = User::find($id);
+        $user_types = UserType::all();
 
-        return view('user.edit_user', compact('title', 'user'));
+        return view('user.edit_user', compact('title', 'user', 'user_types'));
     }
 
     /**
@@ -97,13 +101,14 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|unique:users,email,'.$id,
-            'user_type' => 'required',
+            'is_admin' => 'required',
             'status' => 'required',
         ]);
 
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->is_admin = $request->is_admin;
         $user->user_type = $request->user_type;
 
         if(!empty($request->password)){
@@ -113,7 +118,7 @@ class UserController extends Controller
         $user->status = $request->status;
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Account Successfully Updated!');
     }
 
     /**

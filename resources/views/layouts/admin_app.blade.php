@@ -285,6 +285,12 @@
                                     <p>Users</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user-type.index') }}" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-info"></i>
+                                    <p>User Types</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">

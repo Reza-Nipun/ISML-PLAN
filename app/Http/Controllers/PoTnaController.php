@@ -39,7 +39,7 @@ class PoTnaController extends Controller
             ->whereNull('po_tnas.actual_tna_date')
             ->orderBy('po_tnas.plan_tna_date', 'ASC');
 
-        if (auth()->user()->user_type!=0) {
+        if (!empty(auth()->user()->user_type)) {
             $query = $query->where('tna_terms.responsible_user_type', auth()->user()->user_type);
         }
 
@@ -69,7 +69,7 @@ class PoTnaController extends Controller
                 ->whereNull('po_tnas.actual_tna_date')
                 ->orderBy('po_tnas.plan_tna_date', 'ASC');
 
-        if (auth()->user()->user_type!=0) {
+        if (!empty(auth()->user()->user_type)) {
             $query = $query->where('tna_terms.responsible_user_type', auth()->user()->user_type);
         }
 

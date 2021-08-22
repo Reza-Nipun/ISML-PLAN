@@ -63,16 +63,8 @@
                         {{ $po_tna_detail->tna_term->tna_term }}
                     </td>
                     <td class="text-center td">
-                        @if($po_tna_detail->tna_term->responsible_user_type == 0)
-                            Admin
-                        @elseif($po_tna_detail->tna_term->responsible_user_type == 1)
-                            SD
-                        @elseif($po_tna_detail->tna_term->responsible_user_type == 2)
-                            Commercial
-                        @elseif($po_tna_detail->tna_term->responsible_user_type == 3)
-                            Planner
-                        @elseif($po_tna_detail->tna_term->responsible_user_type == 4)
-                            Store
+                        @if(isset($po_tna_detail->tna_term->responsible_user_type))
+                            {{ $po_tna_detail->tna_term->responsible_users_type->user_type }}
                         @endif
                     </td>
                     <td class="text-center td">
