@@ -99,10 +99,13 @@
                                                 <td class="text-center">
                                                     <select class="form-control" name="responsible_department_old[]" required="required">
                                                         <option value="">Select Department</option>
-                                                        <option value="1" @if($tna_term->responsible_user_type == 1) selected="selected" @endif>SD</option>
-                                                        <option value="2" @if($tna_term->responsible_user_type == 2) selected="selected" @endif>Commercial</option>
-                                                        <option value="3" @if($tna_term->responsible_user_type == 3) selected="selected" @endif>Planner</option>
-                                                        <option value="4" @if($tna_term->responsible_user_type == 4) selected="selected" @endif>Store</option>
+
+                                                        @foreach($user_types AS $user_type)
+                                                            <option value="{{ $user_type->id }}" @if($tna_term->responsible_user_type == $user_type->id) selected="selected" @endif>
+                                                                {{ $user_type->user_type }}
+                                                            </option>
+                                                        @endforeach
+
                                                     </select>
                                                 </td>
                                                 <td class="text-center">
@@ -138,7 +141,15 @@
     <script type="text/javascript">
 
         function addNewTNA(){
-            $("#tna_table > tbody").append('<tr><td class="text-center"><input type="text" id="" class="form-control" name="tna_term[]" required="required" autocomplete="off"></td><td class="text-center"><input type="number" class="form-control" name="days[]" required="required" autocomplete="off"></td><td class="text-center"><select class="form-control" name="responsible_department[]" required="required"><option value="">Select Department</option><option value="1">SD</option><option value="2">Commercial</option><option value="3">Planner</option><option value="4">Store</option></select></td><td class="text-center"><input type="checkbox" name="tna_term_status[]" checked="checked" value="1"></td><td class="text-center"><span class="btn btn-sm btn-danger" id="DeleteTnaTermButton"><i class="fas fa-trash"></i></span></td></tr>');
+            $.ajax({
+                url: "{{ route("add_new_tna_row") }}",
+                type:'POST',
+                data: {_token:"{{csrf_token()}}"},
+                dataType: "html",
+                success: function (data) {
+                    $("#tna_table > tbody").append(data);
+                }
+            });
         }
 
         $("#tna_table").on("click", "#DeleteTnaTermButton", function() {

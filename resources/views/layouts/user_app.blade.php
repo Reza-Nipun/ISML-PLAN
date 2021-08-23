@@ -304,6 +304,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-line nav-icon"></i>
+                            <p>
+                                Reports
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('shipment_summary') }}" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-info"></i>
+                                    <p>Shipment Summary</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('shipment_forecast') }}" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-info"></i>
+                                    <p>Shipment Forecast</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

@@ -112,7 +112,15 @@
     <script type="text/javascript">
 
         function addNewTNA(){
-            $("#tna_table > tbody").append('<tr><td class="text-center"><input type="text" id="" class="form-control" name="tna_term[]" required="required" autocomplete="off"></td><td class="text-center"><input type="number" class="form-control" name="days[]" required="required" autocomplete="off"></td><td class="text-center"><select class="form-control" name="responsible_department[]" required="required"><option value="">Select Department</option><option value="1">SD</option><option value="2">Commercial</option><option value="3">Planner</option><option value="4">Store</option></select></td><td class="text-center"><input type="checkbox" name="tna_term_status[]" checked="checked" value="1"></td><td class="text-center"><span class="btn btn-sm btn-danger" id="DeleteTnaTermButton"><i class="fas fa-trash"></i></span></td></tr>');
+            $.ajax({
+                url: "{{ route("add_new_tna_row") }}",
+                type:'POST',
+                data: {_token:"{{csrf_token()}}"},
+                dataType: "html",
+                success: function (data) {
+                    $("#tna_table > tbody").append(data);
+                }
+            });
         }
 
         $("#tna_table").on("click", "#DeleteTnaTermButton", function() {

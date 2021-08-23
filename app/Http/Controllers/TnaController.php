@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tna;
 use App\TnaTerm;
+use App\UserType;
 use Illuminate\Http\Request;
 
 class TnaController extends Controller
@@ -101,8 +102,16 @@ class TnaController extends Controller
 
         $tna = Tna::find($id);
         $tna_terms = TnaTerm::where('tna_id', $id)->get();
+        $user_types = UserType::all();
 
-        return view('tna.edit_tna', compact('title', 'tna', 'tna_terms'));
+        return view('tna.edit_tna', compact('title', 'tna', 'tna_terms', 'user_types'));
+    }
+
+    public function addNewTnaRow(Request $request){
+
+        $user_types = UserType::all();
+
+        return view('tna.add_new_tna_row', compact('user_types'));
     }
 
     /**

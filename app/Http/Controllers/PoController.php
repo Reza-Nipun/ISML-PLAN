@@ -377,8 +377,73 @@ class PoController extends Controller
         return response()->json('success', 200);
     }
 
+    public function shipmentForecastReport(){
+        $title = ' | Shipment Forecast';
+        $plants = Plant::all();
+        $buyers = Buyer::all();
+
+        return view('reports.shipment_forecast', compact('title', 'buyers', 'plants'));
+    }
+
+    public function getShipmentForecastData(Request $request){
+        $plant_id = $request->plant_id;
+        $buyer_id = $request->buyer_id;
+        $ship_date_from = $request->ship_date_from;
+        $ship_date_to = $request->ship_date_to;
+
+        $query_1 = Po::query()
+            ->whereNotNull('ship_date');
+
+        if ($plant_id!=null) {
+            $query_1 = $query_1->where('plant_id', $plant_id);
+        }
+
+        if ($buyer_id!=null) {
+            $query_1 = $query_1->where('buyer_id', $buyer_id);
+        }
+
+        if (($ship_date_from!=null) && ($ship_date_to!=null)) {
+            $query_1 = $query_1->whereBetween('ship_date', [$ship_date_from, $ship_date_to]);
+        }
+
+        $pos = $query_1->get();
+        $total_pos = $query_1->count();
+        $total_pos_sum_order = $query_1->sum('order_quantity');
+
+        $total_ontime_shipment_pos=0;
+        $total_ontime_shipment_quantity=0;
+
+        $total_delay_shipment_pos=0;
+        $total_delay_shipment_quantity=0;
+
+        foreach ($pos as $po){
+            $po_delay_tna = $po->po_tnas->max('difference_between_plan_actual_date');
+
+            if($po_delay_tna > 0){
+                $total_delay_shipment_pos++;
+                $total_delay_shipment_quantity += $po->order_quantity;
+            }
+
+            if($po_delay_tna <= 0){
+                $total_ontime_shipment_pos++;
+                $total_ontime_shipment_quantity += $po->order_quantity;
+            }
+        }
+
+        $data = array(
+            'total_pos' => $total_pos,
+            'total_pos_sum_order' => $total_pos_sum_order,
+            'total_ontime_shipment' => $total_ontime_shipment_pos,
+            'total_ontime_shipment_quantity' => $total_ontime_shipment_quantity,
+            'total_delay_shipment' => $total_delay_shipment_pos,
+            'total_delay_shipment_quantity' => $total_delay_shipment_quantity,
+        );
+
+        return response()->json($data);
+    }
+
     public function shipmentSummaryReport(){
-        $title = ' | PO List';
+        $title = ' | Shipment Summary';
         $plants = Plant::all();
         $buyers = Buyer::all();
 
@@ -461,7 +526,6 @@ class PoController extends Controller
             'total_pending' => $total_pending,
             'total_pending_quantity' => $total_pending_quantity,
         );
-
 
         return response()->json($data);
     }

@@ -38,10 +38,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/shipment_info_update', 'PoController@shipmentInfoUpdate')->name('shipment_info_update');
     Route::post('/get_po_info', 'PoController@getPoInfo')->name('get_po_info');
     Route::get('/shipment_summary', 'PoController@shipmentSummaryReport')->name('shipment_summary');
+    Route::get('/shipment_forecast', 'PoController@shipmentForecastReport')->name('shipment_forecast');
     Route::post('/get_shipment_summary_data', 'PoController@getShipmentSummaryData')->name('get_shipment_summary_data');
+    Route::post('/get_shipment_forecast_data', 'PoController@getShipmentForecastData')->name('get_shipment_forecast_data');
     Route::post('/po_info_update', 'PoController@poInfoUpdate')->name('po_info_update');
 
     Route::post('/search_po_tna_tasks', 'PoTnaController@searchPoTnaTasks')->name('search_po_tna_tasks');
     Route::post('/complete_po_tna_term', 'PoTnaController@completePoTnaTerm')->name('complete_po_tna_term');
     Route::post('/set_po_tna_term_remarks', 'PoTnaController@setPoTnaTermRemarks')->name('set_po_tna_term_remarks');
+
+    Route::post('/add_new_tna_row', 'TnaController@addNewTnaRow')->name('add_new_tna_row');
 });

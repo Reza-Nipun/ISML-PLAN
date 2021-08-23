@@ -13,12 +13,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Shipment Summary Report</h1>
+                        <h1>Shipment Forecast Report</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Shipment Summary Report</li>
+                            <li class="breadcrumb-item active">Shipment Forecast Report</li>
                         </ol>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                                     <div class="col-md-1 d-flex align-items-end">
                                         <div class="form-group">
                                             {{--<label for="search_btn"><span style="color: #ffffff;">.</span></label>--}}
-                                            <button class="form-control btn btn-primary" id="search_btn" onclick="getShipmentSummaryChart()">SEARCH</button>
+                                            <button class="form-control btn btn-primary" id="search_btn" onclick="getShipmentForecastChart()">SEARCH</button>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
@@ -110,7 +110,7 @@
                                             <!-- PIE CHART -->
                                             <div class="card card-danger">
                                                 <div class="card-header">
-                                                    <h3 class="card-title">Shipment - Pie Chart</h3>
+                                                    <h3 class="card-title">Forecast - Pie Chart</h3>
 
                                                     <div class="card-tools">
                                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -128,36 +128,27 @@
                                                         <table id="table_id" class="table table-bordered">
                                                             <thead>
                                                                 <tr>
-                                                                    <th class="text-center td" style="background-color: #bef3de" colspan="4">TOTAL</th>
+                                                                    <th class="text-center td" style="background-color: #bef3de" colspan="2">TOTAL</th>
                                                                     <th class="text-center td" style="background-color: #b3f397" colspan="2">ONTIME</th>
                                                                     <th class="text-center td" style="background-color: #f3baba" colspan="2">DELAY</th>
-                                                                    <th class="text-center td" style="background-color: #f3efb4" colspan="2">PENDING</th>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="text-center td" style="background-color: #bef3de">POs</th>
-                                                                    <th class="text-center td" style="background-color: #bef3de">POs Shipped</th>
                                                                     <th class="text-center td" style="background-color: #bef3de">POs Qty</th>
-                                                                    <th class="text-center td" style="background-color: #bef3de">Ship Qty</th>
-                                                                    <th class="text-center td" style="background-color: #b3f397">POs Shipped</th>
-                                                                    <th class="text-center td" style="background-color: #b3f397">Shipped Qty</th>
-                                                                    <th class="text-center td" style="background-color: #f3baba">POs Shipped</th>
-                                                                    <th class="text-center td" style="background-color: #f3baba">Shipped Qty</th>
-                                                                    <th class="text-center td" style="background-color: #f3efb4">POs</th>
-                                                                    <th class="text-center td" style="background-color: #f3efb4">Qty</th>
+                                                                    <th class="text-center td" style="background-color: #b3f397">POs</th>
+                                                                    <th class="text-center td" style="background-color: #b3f397">Qty</th>
+                                                                    <th class="text-center td" style="background-color: #f3baba">POs</th>
+                                                                    <th class="text-center td" style="background-color: #f3baba">Qty</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
                                                                     <td class="text-center" id="total_pos" style="background-color: #bef3de">0</td>
-                                                                    <td class="text-center" id="total_pos_shipped" style="background-color: #bef3de">0</td>
                                                                     <td class="text-center" id="total_pos_qty" style="background-color: #bef3de">0</td>
-                                                                    <td class="text-center" id="total_ship_qty" style="background-color: #bef3de">0</td>
                                                                     <td class="text-center" id="ontime_shipment" style="background-color: #b3f397">0</td>
                                                                     <td class="text-center" id="ontime_shipment_qty" style="background-color: #b3f397">0</td>
                                                                     <td class="text-center" id="delay_shipment" style="background-color: #f3baba">0</td>
                                                                     <td class="text-center" id="delay_shipment_qty" style="background-color: #f3baba">0</td>
-                                                                    <td class="text-center" id="pending_shipment" style="background-color: #f3efb4">0</td>
-                                                                    <td class="text-center" id="pending_shipment_qty" style="background-color: #f3efb4">0</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -187,7 +178,7 @@
         <!-- /.content -->
     </div>
     <script>
-        function getShipmentSummaryChart() {
+        function getShipmentForecastChart() {
             var plant_id = $("#plant_filter").val();
             var buyer_id = $("#buyer_filter").val();
 
@@ -202,45 +193,37 @@
             $(".loader").css('display', 'block');
 
             $.ajax({
-                url: "{{ route("get_shipment_summary_data") }}",
+                url: "{{ route("get_shipment_forecast_data") }}",
                 type:'POST',
                 data: {_token:"{{csrf_token()}}", plant_id: plant_id, buyer_id: buyer_id, ship_date_from: ship_date_from, ship_date_to: ship_date_to},
                 dataType: "json",
                 success: function (data) {
                     var total_pos = data.total_pos;
-                    var total_ship_pos = data.total_ship_pos;
-                    var total_ship_quantity = data.total_ship_quantity;
                     var total_pos_sum_order = data.total_pos_sum_order;
                     var total_ontime_shipment = data.total_ontime_shipment;
                     var total_ontime_shipment_quantity = data.total_ontime_shipment_quantity;
                     var total_delay_shipment = data.total_delay_shipment;
                     var total_delay_shipment_quantity = data.total_delay_shipment_quantity;
-                    var total_pending = data.total_pending;
-                    var total_pending_quantity = data.total_pending_quantity;
 
 
                     var ontime_shipment_percentage = ((total_ontime_shipment / total_pos) * 100).toFixed(2);
                     ontime_shipment_percentage = (!isNaN(ontime_shipment_percentage) ? ontime_shipment_percentage : 0);
                     var delay_shipment_percentage = ((total_delay_shipment / total_pos) * 100).toFixed(2);
                     delay_shipment_percentage = (!isNaN(delay_shipment_percentage) ? delay_shipment_percentage : 0);
-                    var pending_shipment_percentage = ((total_pending / total_pos) * 100).toFixed(2);
-                    pending_shipment_percentage = (!isNaN(pending_shipment_percentage) ? pending_shipment_percentage : 0);
 
                     var data_array = [];
                     data_array.push(delay_shipment_percentage);
                     data_array.push(ontime_shipment_percentage);
-                    data_array.push(pending_shipment_percentage);
 
                     var pieData = {
                         labels: [
                             'Delay Shipment',
                             'On-Time Shipment',
-                            'Pending',
                         ],
                         datasets: [
                             {
                                 data: data_array,
-                                backgroundColor : ['#f56954', '#00a65a', '#f39c12',],
+                                backgroundColor : ['#f56954', '#00a65a',],
                             }
                         ]
                     }
@@ -265,15 +248,11 @@
 
 //                    Summary Table Start
                     $("#total_pos").text(total_pos);
-                    $("#total_pos_shipped").text(total_ship_pos);
                     $("#total_pos_qty").text(total_pos_sum_order);
                     $("#ontime_shipment").text(total_ontime_shipment+"("+ontime_shipment_percentage+"%)");
                     $("#ontime_shipment_qty").text(total_ontime_shipment_quantity);
                     $("#delay_shipment").text(total_delay_shipment+"("+delay_shipment_percentage+"%)");
                     $("#delay_shipment_qty").text(total_delay_shipment_quantity);
-                    $("#pending_shipment").text(total_pending+"("+pending_shipment_percentage+"%)");
-                    $("#pending_shipment_qty").text(total_pending_quantity);
-                    $("#total_ship_qty").text(total_ship_quantity);
 //                    Summary Table End
 
                     $(".loader").css('display', 'none');
