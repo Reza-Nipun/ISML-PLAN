@@ -63,7 +63,19 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="tna_name">TNA Name <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" id="tna_name" name="tna_name" placeholder="Enter TNA Name" value="{{ $tna->tna_name }}" autocomplete="off">
+                                    <input type="text" class="form-control" id="tna_name" name="tna_name" placeholder="Enter TNA Name" value="{{ $tna->tna_name }}" autocomplete="off" required="required" />
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="status">Status <span style="color: red">*</span></label>
+                                    <select class="form-control" id="status" name="status" required="required">
+                                        <option value="">Select Status</option>
+                                        <option value="1" @if($tna->status == 1) selected="selected" @endif>Active</option>
+                                        <option value="0" @if($tna->status == 0) selected="selected" @endif>Inactive</option>
+                                    </select>
                                 </div>
                                 <!-- /.form-group -->
                             </div>

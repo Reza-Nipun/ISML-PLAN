@@ -62,7 +62,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="tna_name">TNA Name <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" id="tna_name" name="tna_name" placeholder="Enter TNA Name" value="{{ old('tna_name') }}" autocomplete="off">
+                                    <input type="text" class="form-control" id="tna_name" name="tna_name" placeholder="Enter TNA Name" value="{{ old('tna_name') }}" autocomplete="off" required="required" />
                                 </div>
                                 <!-- /.form-group -->
                             </div>

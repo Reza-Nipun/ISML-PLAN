@@ -125,10 +125,12 @@ class TnaController extends Controller
     {
         $this->validate($request, [
             'tna_name' => 'required|unique:tnas,tna_name,'.$id,
+            'status' => 'required',
         ]);
 
         $tna = Tna::find($id);
         $tna->tna_name = $request->tna_name;
+        $tna->status = $request->status;
         $tna->save();
 
 //        Existing TNA Terms Update Start

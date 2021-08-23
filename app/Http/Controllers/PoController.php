@@ -26,7 +26,7 @@ class PoController extends Controller
         $title = ' | PO List';
         $plants = Plant::all();
         $buyers = Buyer::all();
-        $tnas = Tna::all();
+        $tnas = Tna::where('status', 1)->get();
         $pos = Po::all();
 
         return view('po.po_list', compact('title', 'buyers', 'plants', 'tnas', 'pos'));

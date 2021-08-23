@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3ded1e6-7b00-4ceb-9e3e-adba0ab58656" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/reports/shipment_forecast.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/tna/add_new_tna_row.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TnaController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TnaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/admin_app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/admin_app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/user_app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/user_app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/reports/shipment_summary.blade.php" afterPath="$PROJECT_DIR$/resources/views/reports/shipment_summary.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tna/create_tna.blade.php" afterPath="$PROJECT_DIR$/resources/views/tna/create_tna.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php" afterPath="$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +23,8 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="42" column="71" lean-forward="true" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
+            <state relative-caret-position="183">
+              <caret line="34" column="67" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -40,44 +33,28 @@
       <file leaf-file-name="PoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="388" column="30" lean-forward="false" selection-start-line="388" selection-start-column="30" selection-end-line="388" selection-end-column="30" />
+            <state relative-caret-position="323">
+              <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="po_list.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/po/po_list.blade.php">
+      <file leaf-file-name="TnaController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TnaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="746" column="53" lean-forward="true" selection-start-line="746" selection-start-column="53" selection-end-line="746" selection-end-column="53" />
-              <folding>
-                <marker date="1629625716613" expanded="true" signature="4428:4564" ph="..." />
-                <marker date="1629625716613" expanded="true" signature="4592:4730" ph="..." />
-                <marker date="1629625716613" expanded="true" signature="4758:4898" ph="..." />
-              </folding>
+            <state relative-caret-position="260">
+              <caret line="131" column="44" lean-forward="true" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shipment_forecast.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/reports/shipment_forecast.blade.php">
+      <file leaf-file-name="edit_tna.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="171" column="34" lean-forward="true" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
-              <folding>
-                <element signature="e#5711#5733#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shipment_summary.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/reports/shipment_summary.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="283" column="13" lean-forward="true" selection-start-line="283" selection-start-column="13" selection-end-line="283" selection-end-column="13" />
+            <state relative-caret-position="323">
+              <caret line="76" column="56" lean-forward="false" selection-start-line="76" selection-start-column="56" selection-end-line="76" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -87,8 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>po_update_buyer</find>
-      <find>po_update_plant</find>
       <find>po_info_update_po_id</find>
       <find>warning</find>
       <find>areaChart</find>
@@ -99,13 +74,10 @@
       <find>total_ship_qty</find>
       <find>total_ship_quantity</find>
       <find>ship_date_to</find>
-      <find>poInfoUpdateModal</find>
       <find>search_po</find>
       <find>completePoTnaTerm</find>
       <find>searchPo</find>
       <find>complete_po_tna_term</find>
-      <find>assign_tna_detail</find>
-      <find>assignTnaDetail</find>
       <find>user_type</find>
       <find>po-tna</find>
       <find>get_po_info</find>
@@ -117,6 +89,11 @@
       <find>getShipmentSummaryData</find>
       <find>getShipmentSummaryChart</find>
       <find>get_shipment_summary_data</find>
+      <find>poInfoUpdateModal</find>
+      <find>assignTnaDetail</find>
+      <find>assign_tna_detail</find>
+      <find>assignTNADetail</find>
+      <find>Tna::</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,18 +141,18 @@
         <option value="$PROJECT_DIR$/resources/views/user_types/edit_user_type.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserTypeController.php" />
         <option value="$PROJECT_DIR$/resources/views/po/po_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TnaController.php" />
         <option value="$PROJECT_DIR$/resources/views/tna/add_new_tna_row.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/tna/create_tna.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/user_app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/admin_app.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/PoTna.php" />
         <option value="$PROJECT_DIR$/app/Po.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PoController.php" />
         <option value="$PROJECT_DIR$/resources/views/reports/shipment_forecast.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/reports/shipment_summary.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PoController.php" />
+        <option value="$PROJECT_DIR$/resources/views/tna/create_tna.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/TnaController.php" />
+        <option value="$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php" />
       </list>
     </option>
   </component>
@@ -277,6 +254,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="user_types" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plan" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tna" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -559,15 +558,15 @@
       <workItem from="1628309396801" duration="74800000" />
       <workItem from="1628654894152" duration="46608000" />
       <workItem from="1629607676291" duration="13634000" />
-      <workItem from="1629699157688" duration="13304000" />
+      <workItem from="1629699157688" duration="14236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167367000" />
+    <option name="totallyTimeSpent" value="168299000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2035139" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -847,14 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TnaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="111" column="38" lean-forward="true" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/user_app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -875,30 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tna/create_tna.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="143" column="12" lean-forward="true" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="42" column="71" lean-forward="true" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
           <folding />
         </state>
       </provider>
@@ -927,47 +894,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/po/po_tna_detail_filter.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="55" lean-forward="true" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Po.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/po/po_filter.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="86" lean-forward="false" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="388" column="30" lean-forward="false" selection-start-line="388" selection-start-column="30" selection-end-line="388" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/po/po_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="746" column="53" lean-forward="true" selection-start-line="746" selection-start-column="53" selection-end-line="746" selection-end-column="53" />
-          <folding>
-            <marker date="1629625716613" expanded="true" signature="4428:4564" ph="..." />
-            <marker date="1629625716613" expanded="true" signature="4592:4730" ph="..." />
-            <marker date="1629625716613" expanded="true" signature="4758:4898" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -981,11 +912,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/reports/shipment_forecast.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="171" column="34" lean-forward="true" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
+        <state relative-caret-position="141">
+          <caret line="163" column="42" lean-forward="true" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
           <folding>
             <element signature="e#5711#5733#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="34" column="67" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tna/create_tna.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="64" column="205" lean-forward="false" selection-start-line="64" selection-start-column="205" selection-end-line="64" selection-end-column="205" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/po/po_filter.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="69" column="78" lean-forward="false" selection-start-line="69" selection-start-column="78" selection-end-line="69" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/po/po_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14195">
+          <caret line="835" column="49" lean-forward="false" selection-start-line="835" selection-start-column="32" selection-end-line="835" selection-end-column="49" />
+          <folding>
+            <marker date="1629625716613" expanded="true" signature="4428:4564" ph="..." />
+            <marker date="1629625716613" expanded="true" signature="4592:4730" ph="..." />
+            <marker date="1629625716613" expanded="true" signature="4758:4898" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/po/po_tna_detail_filter.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TnaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="131" column="44" lean-forward="true" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tna/edit_tna.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="76" column="56" lean-forward="false" selection-start-line="76" selection-start-column="56" selection-end-line="76" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
