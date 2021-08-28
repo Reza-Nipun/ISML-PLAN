@@ -27,23 +27,23 @@ class PoTnaController extends Controller
         $buyers = Buyer::all();
         $pos = Po::all();
 
-        $query = DB::table('po_tnas')
-            ->Join('pos', 'pos.id', '=', 'po_tnas.po_id')
-            ->Join('tnas', 'tnas.id', '=', 'po_tnas.tna_id')
-            ->Join('tna_terms', 'tna_terms.id', '=', 'po_tnas.tna_term_id')
-            ->Join('plants', 'plants.id', '=', 'pos.plant_id')
-            ->Join('buyers', 'buyers.id', '=', 'pos.buyer_id')
-            ->select('po_tnas.*', 'pos.po', 'pos.destination', 'pos.quality',
-                'pos.color', 'pos.style_no', 'pos.style_name', 'pos.ship_date', 'pos.po_type',
-                'tnas.tna_name', 'tna_terms.tna_term', 'plants.plant_name', 'buyers.buyer_name')
-            ->whereNull('po_tnas.actual_tna_date')
-            ->orderBy('po_tnas.plan_tna_date', 'ASC');
-
-        if (!empty(auth()->user()->user_type)) {
-            $query = $query->where('tna_terms.responsible_user_type', auth()->user()->user_type);
-        }
-
-        $po_tnas = $query->get();
+//        $query = DB::table('po_tnas')
+//            ->Join('pos', 'pos.id', '=', 'po_tnas.po_id')
+//            ->Join('tnas', 'tnas.id', '=', 'po_tnas.tna_id')
+//            ->Join('tna_terms', 'tna_terms.id', '=', 'po_tnas.tna_term_id')
+//            ->Join('plants', 'plants.id', '=', 'pos.plant_id')
+//            ->Join('buyers', 'buyers.id', '=', 'pos.buyer_id')
+//            ->select('po_tnas.*', 'pos.po', 'pos.destination', 'pos.quality',
+//                'pos.color', 'pos.style_no', 'pos.style_name', 'pos.ship_date', 'pos.po_type',
+//                'tnas.tna_name', 'tna_terms.tna_term', 'plants.plant_name', 'buyers.buyer_name')
+//            ->whereNull('po_tnas.actual_tna_date')
+//            ->orderBy('po_tnas.plan_tna_date', 'ASC');
+//
+//        if (!empty(auth()->user()->user_type)) {
+//            $query = $query->where('tna_terms.responsible_user_type', auth()->user()->user_type);
+//        }
+//
+//        $po_tnas = $query->get();
 
 
         return view('po_tna.po_tna_list', compact('title', 'buyers', 'plants', 'po_tnas', 'pos'));
